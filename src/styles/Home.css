@@ -1,0 +1,26 @@
+.Home {
+  max-width: 888px;
+  width: 90vw;
+  margin: 30px auto 60px auto;
+}
+
+.Home h1 {
+  margin-bottom: 10px;
+}
+
+.error-text {
+    text-align: center;
+    margin: 50px 0;
+}
+
+.SingleBlog {
+  margin: 5px 0;
+  padding: 10px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.SingleBlog:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+

@@ -1,0 +1,17 @@
+.About {
+  max-width: 500px;
+  width: 90vw;
+  margin: 40px auto;
+  text-align: center;
+}
+
+.About h2 {
+  font-size: 25px;
+  margin-bottom: 15px;
+}
+
+@media (max-width: 600px) {
+  .About {
+    text-align: left;
+  }
+}
