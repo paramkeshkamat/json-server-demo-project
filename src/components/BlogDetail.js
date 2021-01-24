@@ -4,6 +4,7 @@ import { FaPencilAlt, FaTrashAlt } from "react-icons/fa";
 import Loading from "./Loading";
 import ModalForm from "./ModalForm";
 import ReactTooltip from "react-tooltip";
+import axios from "axios";
 import "../styles/BlogDetail.css";
 
 const BlogDetail = () => {
@@ -14,9 +15,8 @@ const BlogDetail = () => {
   const history = useHistory();
 
   const fetchBlog = async () => {
-    const response = await fetch(`http://localhost:5000/blogs/${id}`);
-    const data = await response.json();
-    setBlog(data);
+    const response = await axios.get(`http://localhost:5000/blogs/${id}`);
+    setBlog(response.data);
     setIsLoading(false);
   };
 
@@ -26,10 +26,8 @@ const BlogDetail = () => {
   }, []);
 
   const deleteBlog = async () => {
-    const response = await fetch(`http://localhost:5000/blogs/${id}`, {
-      method: "DELETE",
-    });
-    if (response.ok) {
+    const response = await axios.delete(`http://localhost:5000/blogs/${id}`);
+    if (response.statusText === "OK") {
       history.push("/");
     }
   };

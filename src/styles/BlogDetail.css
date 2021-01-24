@@ -50,6 +50,10 @@
   z-index: 99;
 }
 
+.modal-body form {
+  width: 100%;
+}
+
 .close-modal-btn {
   position: absolute;
   top: 5%;

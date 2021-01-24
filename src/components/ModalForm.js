@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { VscClose } from "react-icons/vsc";
+import axios from "axios";
 
 const ModalForm = ({ setShowModal, blog, setBlog }) => {
   const [title, setTitle] = useState(blog.title);
@@ -11,12 +12,8 @@ const ModalForm = ({ setShowModal, blog, setBlog }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const newBlog = { id: blog.id, title, author, body };
-    const response = await fetch(`http://localhost:5000/blogs/${blog.id}`, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(newBlog),
-    });
-    if (response.ok) {
+    const response = await axios.put(`http://localhost:5000/blogs/${blog.id}`, newBlog);
+    if (response.statusText === "OK") {
       history.push(`/blogs/${blog.id}`);
     }
     setBlog(newBlog);

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { v4 as uuid } from "uuid";
 import { useHistory } from "react-router-dom";
 import "../styles/Create.css";
+import axios from "axios"; 
 
 const Create = () => {
   const [title, setTitle] = useState("");
@@ -10,12 +11,8 @@ const Create = () => {
   const history = useHistory();
 
   const postBlog = async (newBlog) => {
-    const response = await fetch("http://localhost:5000/blogs", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(newBlog),
-    });
-    if (response.ok) {
+    const response = await axios.post("http://localhost:5000/blogs", newBlog);
+    if (response.statusText === "created") {
       history.push("/");
     }
   };

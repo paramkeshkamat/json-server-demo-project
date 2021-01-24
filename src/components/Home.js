@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import SingleBlog from "./SingleBlog";
 import Loading from "./Loading";
+import axios from "axios";
 import "../styles/Home.css";
 
 const Home = () => {
@@ -8,9 +9,8 @@ const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   const fetchBlogs = async () => {
-    const response = await fetch("http://localhost:5000/blogs");
-    const data = await response.json();
-    setBlogs(data);
+    const response = await axios.get("http://localhost:5000/blogs");
+    setBlogs(response.data);
     setIsLoading(false);
   };
 
