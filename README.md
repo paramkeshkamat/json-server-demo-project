@@ -1,0 +1,2 @@
+# JSON Server Demo Project
+Json-server is used for creating a dummy rest-API without haveing a backend. I used json-server to create a dummy API so that I can learn how GET, POST, PUT and DELETE methods work using React.
