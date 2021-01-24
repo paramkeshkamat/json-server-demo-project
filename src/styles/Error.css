@@ -1,14 +1,18 @@
 .Error404 {
-    margin-top: 60px;
-    text-align: center;
+  margin-top: 60px;
+  text-align: center;
 }
 
 .Error404 h1 {
-    font-size: 50px;
+  font-size: 50px;
 }
 
 .Error404 p {
-    margin: 5px 0 25px 0;
-    font-size: 22px;
+  margin: 5px 0 20px 0;
+  font-size: 22px;
 }
 
+.error-btn {
+  display: inline-block;
+  margin: auto;
+}

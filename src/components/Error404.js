@@ -8,7 +8,9 @@ const Error404 = () => {
     <div className="Error404">
       <h1>Error 404!</h1>
       <p>Oops! Page not found!</p>
-      <button onClick={() => history.push("/")}>Go back to home page</button>
+      <button className="error-btn" onClick={() => history.push("/")}>
+        Go back to home page
+      </button>
     </div>
   );
 };

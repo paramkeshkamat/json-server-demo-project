@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useHistory } from "react-router-dom";
-import { FaTrashAlt } from "react-icons/fa";
+import { FaPencilAlt, FaTrashAlt } from "react-icons/fa";
 import Loading from "./Loading";
+import ModalForm from "./ModalForm";
 import "../styles/BlogDetail.css";
 
 const BlogDetail = () => {
   const [blog, setBlog] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  const [showModal, setShowModal] = useState(false);
   const { id } = useParams();
   const history = useHistory();
 
@@ -41,9 +43,15 @@ const BlogDetail = () => {
       <h2 className="title">{title}</h2>
       <p className="body">{body}</p>
       <p className="author">- {author}</p>
-      <button className="delete-btn" onClick={deleteBlog} title="delete">
-        <FaTrashAlt />
-      </button>
+      <div className="buttons">
+        <button className="edit-btn" onClick={() => setShowModal(true)} title="edit">
+          <FaPencilAlt />
+        </button>
+        <button className="delete-btn" onClick={deleteBlog} title="delete">
+          <FaTrashAlt />
+        </button>
+      </div>
+      {showModal && <ModalForm setShowModal={setShowModal} blog={blog}/>}
     </div>
   );
 };

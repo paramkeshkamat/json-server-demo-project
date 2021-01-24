@@ -1,10 +1,10 @@
 {
   "blogs": [
     {
-      "id": "8f532579-6702-4992-89b6-270e55bb41f3",
-      "title": "New Blog",
-      "author": "param",
-      "body": "I'm working on a project that requires me to make requests to an API. What is the proper form for making a POST request with Async/Await?\nAs an example, here is my fetch to get a list of all devices. How would I go about changing this request to POST to create a new device? I understand I would have to add a header with a data body."
+      "id": "bf0671c6-8e83-4bef-8ae8-0b19be3cec87",
+      "title": "proper title",
+      "author": "param keshkamat",
+      "body": "Some interesting blog\n"
     }
   ]
 }
