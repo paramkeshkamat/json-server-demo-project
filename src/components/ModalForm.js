@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { VscClose } from "react-icons/vsc";
 
-const ModalForm = ({ setShowModal, blog }) => {
+const ModalForm = ({ setShowModal, blog, setBlog }) => {
   const [title, setTitle] = useState(blog.title);
   const [author, setAuthor] = useState(blog.author);
   const [body, setBody] = useState(blog.body);
@@ -17,8 +17,9 @@ const ModalForm = ({ setShowModal, blog }) => {
       body: JSON.stringify(newBlog),
     });
     if (response.ok) {
-      history.push(`/`);
+      history.push(`/blogs/${blog.id}`);
     }
+    setBlog(newBlog);
     setShowModal(false);
   };
 
@@ -57,11 +58,7 @@ const ModalForm = ({ setShowModal, blog }) => {
             Submit
           </button>
         </form>
-        <button
-          className="close-modal-btn"
-          onClick={() => setShowModal(false)}
-          title="close"
-        >
+        <button className="close-modal-btn" onClick={() => setShowModal(false)}>
           <VscClose />
         </button>
       </div>

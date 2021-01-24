@@ -3,6 +3,7 @@ import { useParams, useHistory } from "react-router-dom";
 import { FaPencilAlt, FaTrashAlt } from "react-icons/fa";
 import Loading from "./Loading";
 import ModalForm from "./ModalForm";
+import ReactTooltip from "react-tooltip";
 import "../styles/BlogDetail.css";
 
 const BlogDetail = () => {
@@ -44,14 +45,32 @@ const BlogDetail = () => {
       <p className="body">{body}</p>
       <p className="author">- {author}</p>
       <div className="buttons">
-        <button className="edit-btn" onClick={() => setShowModal(true)} title="edit">
+        <button
+          className="edit-btn"
+          onClick={() => setShowModal(true)}
+          data-tip
+          data-for="edit"
+        >
           <FaPencilAlt />
         </button>
-        <button className="delete-btn" onClick={deleteBlog} title="delete">
+        <button
+          className="delete-btn"
+          onClick={deleteBlog}
+          data-tip
+          data-for="delete"
+        >
           <FaTrashAlt />
         </button>
       </div>
-      {showModal && <ModalForm setShowModal={setShowModal} blog={blog}/>}
+      {showModal && (
+        <ModalForm setShowModal={setShowModal} blog={blog} setBlog={setBlog} />
+      )}
+      <ReactTooltip id="edit" place="bottom" effect="solid">
+        edit
+      </ReactTooltip>
+      <ReactTooltip id="delete" place="bottom" effect="solid">
+        delete
+      </ReactTooltip>
     </div>
   );
 };
